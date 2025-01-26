@@ -11,6 +11,7 @@ import NodeCache from "node-cache";
 import morgan from "morgan";
 import cors from "cors";
 import Stripe from "stripe";
+import { v2 as cloudinary } from "cloudinary";
 
 dotenv.config({ path: ".env" });
 
@@ -27,6 +28,12 @@ export const stripe = new Stripe(stripeKey)
 connectDB(MONGOURL);
 
 export const myCache = new NodeCache();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUD_NAME,
+    api_key: process.env.CLOUD_API_KEY,
+    api_secret: process.env.CLOUD_API_SECRET,
+  });
 
 
 app.get("/",(req,res)=>{

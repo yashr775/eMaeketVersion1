@@ -61,7 +61,7 @@ const Products = () => {
     if (data)
       setRows(
         data.products.map((i) => ({
-          photo: <img src={`${server}/${i.photos}`} />,
+          photo: <img src={i.photos?.[0]?.url} />,
           name: i.name,
           price: i.price,
           stock: i.stock,

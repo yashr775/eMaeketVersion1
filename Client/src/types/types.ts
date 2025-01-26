@@ -78,7 +78,10 @@ export type OrderItemType = {
     stock: number;
     category: string;
     description: string;
-    photos: string;
+    photos: {
+      url:string,
+      public_id:string
+    }[];
     _id: string;
   };
 
