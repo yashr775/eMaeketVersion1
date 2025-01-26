@@ -2,6 +2,9 @@ import express from "express";
 import { multiUpload } from "../middlewares/multer.js";
 import {
   deleteProduct,
+  allReviewsOfProduct,
+  newReview,
+  deleteReview,
   getAdminProducts,
   getAllCategories,
   getAllProducts,
@@ -24,5 +27,9 @@ app
   .get(getSingleProduct)
   .put(multiUpload, updateProduct)
   .delete(deleteProduct);
+
+  app.get("/reviews/:id", allReviewsOfProduct);
+app.post("/review/new/:id", newReview);
+app.delete("/review/:id", deleteReview);
 
 export default app;

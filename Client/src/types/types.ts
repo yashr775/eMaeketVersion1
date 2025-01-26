@@ -77,6 +77,8 @@ export type OrderItemType = {
     price: number;
     stock: number;
     category: string;
+    ratings:number;
+    numOfReviews:number;
     description: string;
     photos: {
       url:string,
@@ -84,7 +86,6 @@ export type OrderItemType = {
     }[];
     _id: string;
   };
-
   export type ShippingInfo = {
     address: string;
     city: string;
@@ -159,5 +160,17 @@ export type Line = {
 export type CouponType = {
   code: string;
   amount: number;
+  _id: string;
+};
+
+export type Review = {
+  rating: number;
+  comment: string;
+  product: string;
+  user: {
+    name: string;
+    photo: string;
+    _id: string;
+  };
   _id: string;
 };

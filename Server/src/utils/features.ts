@@ -5,6 +5,25 @@ import { myCache } from "../app.js";
 import { Product } from "../models/product.js";
 import { Order } from "../models/order.js";
 import { v2 as cloudinary, UploadApiResponse } from "cloudinary";
+import { Review } from "../models/review.js";
+
+export const findAverageRatings = async (
+  productId: mongoose.Types.ObjectId
+) => {
+  let totalRating = 0;
+
+  const reviews = await Review.find({ product: productId });
+  reviews.forEach((review) => {
+    totalRating += review.rating;
+  });
+
+  const averateRating = Math.floor(totalRating / reviews.length) || 0;
+
+  return {
+    numOfReviews: reviews.length,
+    ratings: averateRating,
+  };
+};
 
 const getBase64 = (file: Express.Multer.File) =>
   `data:${file.mimetype};base64,${file.buffer.toString("base64")}`;

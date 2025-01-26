@@ -34,6 +34,7 @@ const TransactionManagement = lazy(
 const DiscountManagement = lazy(
   () => import("./pages/pages/management/DiscountManagement")
 );
+const ProductDetails = lazy(() => import("./pages/product-details"));
 
 const Stopwatch = lazy(() => import("./pages/pages/apps/Stopwatch"));
 const Toss = lazy(() => import("./pages/pages/apps/Toss"));
@@ -73,6 +74,7 @@ const App = () => {
           <Route path={"/"} element={<Home />}></Route>
           <Route path={"/search"} element={<Search />}></Route>
           <Route path={"/cart"} element={<Cart />}></Route>
+          <Route path="/product/:id" element={<ProductDetails />} />
           <Route
             path={"/login"}
             element={
