@@ -1,4 +1,4 @@
-import { Bar, CartItem, Line, Order, Pie, Product, ShippingInfo, Stats, User } from "./types";
+import { Bar, CartItem, CouponType, Line, Order, Pie, Product, ShippingInfo, Stats, User } from "./types";
 
 export type CustomError = {
   status: number;
@@ -119,4 +119,13 @@ export type UpdateOrderRequest = {
 export type DeleteUserRequest = {
   userId: string;
   adminUserId: string;
+};
+export type AllDiscountResponse = {
+  success: boolean;
+  coupons: CouponType[];
+};
+
+export type SingleDiscountResponse = {
+  success: boolean;
+  coupon: CouponType;
 };

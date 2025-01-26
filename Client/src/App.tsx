@@ -31,12 +31,17 @@ const ProductManagement = lazy(
 const TransactionManagement = lazy(
   () => import("./pages/pages/management/TransactionManagement")
 );
+const DiscountManagement = lazy(
+  () => import("./pages/pages/management/DiscountManagement")
+);
 
 const Stopwatch = lazy(() => import("./pages/pages/apps/Stopwatch"));
 const Toss = lazy(() => import("./pages/pages/apps/Toss"));
 const Coupon = lazy(() => import("./pages/pages/apps/Coupon"));
 const Shipping = lazy(() => import("./pages/shipping"));
 const Login = lazy(() => import("./pages/login"));
+const Discount = lazy(() => import("./pages/pages/discount"));
+const NewDiscount = lazy(() => import("./pages/pages/management/NewDiscount"));
 const Orders = lazy(() => import("./pages/orders"));
 const NotFound = lazy(() => import("./pages/not-found"));
 
@@ -105,13 +110,19 @@ const App = () => {
             <Route path="/admin/product" element={<Products />} />
             <Route path="/admin/transaction" element={<Transaction />} />
             <Route path="/admin/customers" element={<Customers />} />
+            <Route path="/admin/discount" element={<Discount />} />
 
             <Route path="/admin/chart/bar" element={<BarCharts />} />
             <Route path="/admin/chart/pie" element={<PieCharts />} />
             <Route path="/admin/chart/line" element={<LineCharts />} />
 
             <Route path="/admin/product/new" element={<NewProduct />} />
+            <Route path="/admin/discount/new" element={<NewDiscount />} />
             <Route path="/admin/product/:id" element={<ProductManagement />} />
+            <Route
+              path="/admin/discount/:id"
+              element={<DiscountManagement />}
+            />
             <Route
               path="/admin/transaction/:id"
               element={<TransactionManagement />}

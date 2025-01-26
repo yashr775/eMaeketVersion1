@@ -27,7 +27,7 @@ const newCoupon = TryCatch(async (req, res, next) => {
 
   if (!code || !amount)
     return next(new ErrorHandler("Please enter both coupon and amount", 400));
-
+     console.log(code +" "+ amount)
   await Coupon.create({ code, amount });
 
   return res.status(201).json({

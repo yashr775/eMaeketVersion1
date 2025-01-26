@@ -17,11 +17,18 @@ dotenv.config({ path: ".env" });
 
 const MONGOURL = process.env.MONGO_URL || "fvgfdgfd";
 const stripeKey = process.env.STRIPE_KEY || "";
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
+const clientURL = process.env.CLIENT_URL || "";
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(cors());
+app.use(
+    cors({
+      origin: [clientURL],
+      methods: ["GET", "POST", "PUT", "DELETE"],
+      credentials: true,
+    })
+  );
 
 export const stripe = new Stripe(stripeKey)
 
