@@ -10,6 +10,7 @@ import { userExist, userNotExist } from "./redux/reducer/userReducer";
 import { getUser } from "./redux/api/userAPI";
 import { UserReducerInitialState } from "./types/reducer-types";
 import ProtectedRoute from "./components/protected-route";
+import Footer from "./components/footer";
 const Checkout = lazy(() => import("./pages/checkout"));
 
 const Home = lazy(() => import("./pages/Home"));
@@ -137,6 +138,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      <Footer />
       <Toaster position="bottom-center" />
     </Router>
   );
